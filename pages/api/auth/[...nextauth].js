@@ -34,7 +34,7 @@ export default NextAuth({
   ],
   secret: process.env.JWT_SECRET,
   pages: {
-    sigIn: "/login",
+    signIn: "/login",
   },
   callbacks: {
     async jwt({ token, account, user }) {
@@ -49,7 +49,7 @@ export default NextAuth({
         };
       }
       // return previous token if the access token has not expired
-      if (Date.now() < token.accessTokenExppires) {
+      if (Date.now() < token.accessTokenExpires) {
         return token;
       }
       // Access token has expired, so we need to refresh it
