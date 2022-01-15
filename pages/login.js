@@ -1,3 +1,4 @@
+import getProviders from "next-auth/react";
 function Login() {
   return (
     <div>
@@ -7,3 +8,6 @@ function Login() {
 }
 
 export default Login;
+export async function getServerSideProps() {
+  const providers = await getProviders();
+}
